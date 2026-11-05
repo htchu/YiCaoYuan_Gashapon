@@ -1,11 +1,18 @@
 import { Pool } from "pg";
 
-const pool = new Pool({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  ssl: { rejectUnauthorized: false },
-});
+let pool: Pool;
 
-export default pool;
+function getPool() {
+  if (!pool) {
+    pool = new Pool({
+      host: process.env.PGHOST,
+      user: process.env.PGUSER,
+      database: process.env.PGDATABASE,
+      password: process.env.PGPASSWORD,
+      ssl: { rejectUnauthorized: false },
+    });
+  }
+  return pool;
+}
+
+export default getPool();
