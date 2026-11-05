@@ -170,6 +170,10 @@ export default function Home() {
             <h1 className="text-xl font-bold">一草園扭蛋出清</h1>
             <p className="text-amber-100 text-sm">購買意向書</p>
           </div>
+          <div className="hidden sm:block text-white text-sm font-bold leading-relaxed max-w-lg text-center">
+            原版扭蛋4折出清(可議)，購買多組的客人優先選擇扭蛋機台。<br/>
+            請填購買意向書，實際數量及價格當面商議及面交。
+          </div>
           <div className="flex items-center gap-4">
             <Link
               href="/lookup"
@@ -194,6 +198,11 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Announcement banner (mobile) */}
+      <div className="sm:hidden bg-red-600 text-white px-4 py-2.5 text-center text-base font-bold">
+        原版扭蛋4折出清(可議)，購買多組的客人優先選擇扭蛋機台。請填購買意向書，實際數量及價格當面商議及面交。
+      </div>
 
       {/* Filter tabs */}
       <div className="bg-white border-b sticky top-[60px] z-30">
