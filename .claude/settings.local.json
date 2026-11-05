@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(mkdir -p /c/githome/YiCaoYuan_Gashapon/gashapon-app/public/products)",
+      "Bash(cp \"/c/githome/YiCaoYuan_Gashapon/商品照片/\"* /c/githome/YiCaoYuan_Gashapon/gashapon-app/public/products/)",
+      "Bash(node:*)",
+      "Bash(npx next:*)"
+    ]
+  }
+}
