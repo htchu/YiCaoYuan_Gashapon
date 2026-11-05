@@ -3,7 +3,7 @@ import pool from "@/lib/db";
 import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
-  const { email, items, note } = await req.json();
+  const { email, customer_name, phone, items, note } = await req.json();
 
   if (!email || !items || items.length === 0) {
     return NextResponse.json({ error: "請填寫Email及至少選擇一項商品" }, { status: 400 });
@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
   try {
     await client.query("BEGIN");
     const { rows } = await client.query(
-      "INSERT INTO intent_forms (email, note) VALUES ($1, $2) RETURNING id",
-      [email, note || null]
+      "INSERT INTO intent_forms (email, customer_name, phone, note) VALUES ($1, $2, $3, $4) RETURNING id",
+      [email, customer_name || null, phone || null, note || null]
     );
     const formId = rows[0].id;
 

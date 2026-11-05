@@ -22,6 +22,8 @@ interface IntentItem {
 interface IntentForm {
   id: number;
   email: string;
+  customer_name: string | null;
+  phone: string | null;
   note: string | null;
   created_at: string;
   items: IntentItem[];
@@ -179,6 +181,12 @@ export default function AdminPage() {
                   <div className="bg-gray-50 px-4 py-3 border-b flex flex-wrap gap-4 items-center justify-between">
                     <div className="flex items-center gap-4">
                       <span className="font-bold">#{form.id}</span>
+                      {form.customer_name && (
+                        <span className="font-medium">{form.customer_name}</span>
+                      )}
+                      {form.phone && (
+                        <span className="text-gray-600">{form.phone}</span>
+                      )}
                       <span className="text-blue-600">{form.email}</span>
                       <span className="text-gray-500 text-sm">
                         {new Date(form.created_at).toLocaleString("zh-TW")}

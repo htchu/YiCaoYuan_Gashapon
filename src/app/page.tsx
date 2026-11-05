@@ -34,6 +34,8 @@ export default function Home() {
   const [filter, setFilter] = useState<string>("all");
   const [showCheckout, setShowCheckout] = useState(false);
   const [email, setEmail] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [phone, setPhone] = useState("");
   const [note, setNote] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<number | null>(null);
@@ -96,6 +98,10 @@ export default function Home() {
   );
 
   const handleSubmit = async () => {
+    if (!customerName.trim()) {
+      alert("請輸入您的稱呼");
+      return;
+    }
     if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       alert("請輸入有效的Email地址");
       return;
@@ -107,6 +113,8 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
+          customer_name: customerName,
+          phone,
           note,
           items: cart.map((c) => ({
             product_id: c.product.id,
@@ -171,7 +179,7 @@ export default function Home() {
             <p className="text-amber-100 text-sm">購買意向書</p>
           </div>
           <div className="hidden sm:block text-white text-sm font-bold leading-relaxed max-w-lg text-center">
-            原版扭蛋4折出清(可議)，購買多組的客人優先選擇扭蛋機台。<br/>
+            原版扭蛋4折出清(價格可議)，購買多組的客人優先選擇扭蛋機台。附扭蛋紙。<br/>
             請填購買意向書，實際數量及價格當面商議及面交。
           </div>
           <div className="flex items-center gap-4">
@@ -201,7 +209,7 @@ export default function Home() {
 
       {/* Announcement banner (mobile) */}
       <div className="sm:hidden bg-red-600 text-white px-4 py-2.5 text-center text-base font-bold">
-        原版扭蛋4折出清(可議)，購買多組的客人優先選擇扭蛋機台。請填購買意向書，實際數量及價格當面商議及面交。
+        原版扭蛋4折出清(價格可議)，購買多組的客人優先選擇扭蛋機台。附扭蛋紙。請填購買意向書，實際數量及價格當面商議及面交。
       </div>
 
       {/* Filter tabs */}
@@ -534,6 +542,30 @@ export default function Home() {
                   <span className="text-red-600">${cartTotal}</span>
                 </div>
               </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">
+                稱呼 <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                placeholder="您的稱呼"
+                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-1">
+                手機 (選填)
+              </label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="0912345678"
+                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none"
+              />
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">
