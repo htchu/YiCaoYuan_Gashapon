@@ -77,7 +77,7 @@ async function setup() {
       // --- 扭蛋商品 R3C1 ---
       ["圓圓貓咪珠鍊吊飾-人氣貓咪大集合", "gashapon", 37, 60, 30, "p20.jpg", null, "R3C1"],
       ["SNOOPY爵士樂公仔", "gashapon", 26, 100, 50, "p21.jpg", null, "R3C1"],
-      ["精靈寶可夢Q版造型公仔", "gashapon", 105, 150, 60, "p22.jpg", null, "R3C1"],
+      ["精靈寶可夢Q版造型公仔", "gashapon", 105, 150, 66, "p22.jpg", null, "R3C1"],
       ["精靈寶可夢Q版造型公仔P4", "gashapon", 70, 150, 60, "p23.jpg", null, "R3C1"],
       ["史努比排隊公仔P2", "gashapon", 34, 150, 60, "p24.jpg", null, "R3C1"],
       // --- 扭蛋商品 C7R1 ---
