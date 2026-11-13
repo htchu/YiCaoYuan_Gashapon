@@ -49,4 +49,5 @@ next-env.d.ts
 # source photos & generated docs
 /商品照片/
 *.docx
+!一草園扭蛋出清報價單.docx
 ~$*
